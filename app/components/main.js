@@ -7,38 +7,44 @@ var Link = require("react-router").Link;
 var Main = React.createClass({
 
   // Here we render the component
-  render: function() {
+  render: function () {
 
     return (
       <div className="container">
 
-        <div className="row">
-
-          <div className="jumbotron">
-            <h1>React Router</h1>
-            <p><em>Because we can't afford to miss a minute of this video! #flylikeaneagle</em></p>
-            <Link to="/info"><button className="btn btn-default">Info</button></Link>
-            <Link to="/chat"><button className="btn btn-default">Comments</button></Link>
-          </div>
-
-          <div className="row">
-            <div className="text-center">
-              <iframe
-                width="640"
-                height="360"
-                src="https://www.youtube.com/embed/K1lKk5IU4ZE?rel=0&amp;controls=0&amp;showinfo=0"
+        <nav className="navbar navbar-default" role="navigation">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button
+                type="button"
+                className="navbar-toggle"
+                data-toggle="collapse"
+                data-target=".navbar-ex1-collapse"
               >
-              </iframe>
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <Link className="navbar-brand" to="/">NYT-React</Link>
+            </div>
+
+            <div className="collapse navbar-collapse navbar-ex1-collapse">
+              <ul className="nav navbar-nav navbar-right">
+
+                <li><Link to="/search">Search</Link></li>
+
+              </ul>
             </div>
           </div>
+        </nav>
 
-          <div className="container">
-
-            {/* Added this.props.children to dump all of the child components into place */}
-            {this.props.children}
-
-          </div>
+        <div className="jumbotron">
+          <h2 className="text-center"><strong>New York Times Article Scrubber</strong></h2>
+          <h3 className="text-center">Search for current articles of interest.</h3>
         </div>
+
+        {this.props.children}
 
       </div>
     );
